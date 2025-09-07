@@ -1433,8 +1433,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trackedObjectPrefab: {fileID: 5806860414203550091, guid: cac09a1ab8ba84e508e583fd164c8464, type: 3}
-  trackerInfoPrefab: {fileID: 4784685834456355711, guid: a8fcd74b7bd0f4f49a836f31a3587c87, type: 3}
-  trackerBounds: {fileID: 6580901778066238885, guid: ff18ac20d73394fe9be5422f00300473, type: 3}
+  trackedInfoPrefab: {fileID: 4784685834456355711, guid: a8fcd74b7bd0f4f49a836f31a3587c87, type: 3}
+  trackedBoundsPrefab: {fileID: 6580901778066238885, guid: ff18ac20d73394fe9be5422f00300473, type: 3}
 --- !u!1 &1614787742
 GameObject:
   m_ObjectHideFlags: 0

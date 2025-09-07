@@ -2,25 +2,26 @@ using LearnXR.Core.Utilities;
 using Meta.XR.MRUtilityKit;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class TrackablesManager : MonoBehaviour
 {
     [SerializeField] private GameObject trackedObjectPrefab;
-    [SerializeField] private GameObject trackerInfoPrefab;
-    [SerializeField] private GameObject trackerBounds;
+    [SerializeField] private GameObject trackedInfoPrefab;
+    [SerializeField] private GameObject trackedBoundsPrefab;
     
     public void OnTrackableAdded(MRUKTrackable trackable)
     {
         SpatialLogger.Instance.LogInfo($"Trackable of type {trackable.TrackableType} added");
         var trackedObjectInstance = Instantiate(trackedObjectPrefab, trackable.transform);
         
-        var trackedBoundsInstance = Instantiate(trackerBounds, trackedObjectInstance.transform);
+        var trackedBoundsInstance = Instantiate(trackedBoundsPrefab, trackedObjectInstance.transform);
         var boundingAreaRect = trackable.PlaneRect.Value;
         
         if (trackable.TrackableType == OVRAnchor.TrackableType.QRCode 
             && trackable.MarkerPayloadString != null)
         {
-            var trackedObjectInfo = Instantiate(trackerInfoPrefab, trackedObjectInstance.transform);
+            var trackedObjectInfo = Instantiate(trackedInfoPrefab, trackedObjectInstance.transform);
             trackedObjectInfo.GetComponentInChildren<TextMeshProUGUI>()
                     .text = $"<color=red>QR Code Payload:</color> {trackable.MarkerPayloadString}";
             
